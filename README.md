@@ -1,104 +1,117 @@
-Personal Portfolio - Obisanya Oluwatosin
+# **Personal Portfolio – Obisanya Oluwatosin**
 
-A modern, high-performance personal portfolio website built with React, Tailwind CSS, and Vite. This project features a responsive design, smooth scroll animations, and a clean aesthetic to showcase skills, experience, and projects.
+A modern, high-performance **personal portfolio website** built with **React**, **Tailwind CSS**, and **Vite**.
+This project features a responsive UI, smooth scroll animations, and a clean, modern aesthetic to showcase skills, experience, and projects.
 
-🚀 Features
+---
 
-Responsive Design: Fully optimized for mobile, tablet, and desktop screens.
+## 🚀 **Features**
 
-Smooth Animations: Sections fade in upon scrolling using the Intersection Observer API.
+* **Responsive Design** – Fully optimized for mobile, tablet, and desktop.
+* **Smooth Animations** – Sections fade in on scroll using the Intersection Observer API.
+* **Typing Effect** – Dynamic hero text animation for an engaging introduction.
+* **Modern UI** – Tailwind-powered gradients, glassmorphism, and custom utility classes.
+* **Dark Theme** – Built around Tailwind's **slate-950** for a sleek, professional look.
+* **Direct Contact** – “Mailto” button for instant email communication.
+* **High-Quality Icons** – Powered by `lucide-react`.
 
-Typing Effect: engaging hero section with a dynamic text typing animation.
+---
 
-Modern UI: Styled with Tailwind CSS using gradients, glassmorphism, and custom utility classes.
+## 🛠️ **Tech Stack**
 
-Dark Theme: Built with a "slate-950" dark theme base for a professional look.
+| Category               | Tool         |
+| ---------------------- | ------------ |
+| **Frontend Framework** | React        |
+| **Build Tool**         | Vite         |
+| **Styling**            | Tailwind CSS |
+| **Icons**              | Lucide React |
 
-Direct Contact: "Mailto" button integration for instant email communication.
+---
 
-Icons: High-quality icons provided by lucide-react.
+## 📦 **Prerequisites**
 
-🛠️ Tech Stack
+Before getting started, ensure you have the following installed:
 
-Frontend Framework: React
+* **Node.js** (v16+)
+* **npm** (comes with Node.js)
 
-Build Tool: Vite
+---
 
-Styling: Tailwind CSS
+## ⚡ **Installation & Setup**
 
-Icons: Lucide React
+```bash
+# Clone the repository
+git clone https://github.com/your-username/tosin-portfolio.git
 
-📦 Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-Node.js (v16.0.0 or higher)
-
-npm (comes with Node.js)
-
-⚡ Installation & Setup
-
-Clone the repository
-
-
+# Enter the project folder
 cd tosin-portfolio
 
-
-Install dependencies
-
+# Install dependencies
 npm install
 
-
-Run the development server
-
+# Start the development server
 npm run dev
+```
 
+Now open your browser and visit:
 
-Open your browser and navigate to http://localhost:5173 to see the site live.
+```
+http://localhost:5173
+```
 
-🔧 Customization
+---
 
-All data is structured in constants within src/App.jsx for easy editing.
+## 🔧 **Customization**
 
-1. Update Personal Info
+All editable content is located inside `src/App.jsx`.
 
-Locate the App.jsx file and update the hardcoded strings in the Hero and Navbar components:
+### **1. Update Personal Info**
 
-Change "Obisanya Oluwatosin" to your name.
+Inside the `Hero` and `Navbar` components:
 
-Update the "T" initial in the logo.
+* Replace **"Obisanya Oluwatosin"** with your name.
+* Update the logo’s initial `"T"` if needed.
 
-2. Modify Data Sections
+### **2. Modify Data Sections**
 
-Scroll to the /* --- DATA --- */ section in src/App.jsx. You will find arrays you can modify:
+Scroll to the
 
-SKILLS: Add or remove objects to update the skills grid.
+```jsx
+/* --- DATA --- */
+```
 
-EXPERIENCES: Update your work history.
+section in `App.jsx` to customize:
 
-PROJECTS: Change titles, descriptions, and replace the image URLs with your own screenshots.
+* **SKILLS** → Add/remove skill objects
+* **EXPERIENCES** → Update job history
+* **PROJECTS** → Edit titles, descriptions, and replace image URLs with your own screenshots
 
-3. Contact Email
+### **3. Update Contact Email**
 
-In the Contact component, update the mailto link:
+In the `Contact` component, update the mailto link:
 
+```html
 href="mailto:your-email@gmail.com?subject=Project%20Inquiry..."
+```
+
+---
+
+## 🚀 **Deployment**
+
+### **Deploy on Vercel (Recommended)**
+
+1. Push your project to a GitHub repository.
+2. Visit **Vercel** and sign in.
+3. Click **“Add New” → “Project”**.
+4. Import your GitHub repo.
+5. Vercel will auto-detect Vite → click **Deploy**.
+
+---
+
+## 📄 **License**
+
+This project is **open-source** and available under the **MIT License**.
 
 
-🚀 Deployment
 
-Deploy to Vercel (Recommended)
-
-Push your code to a GitHub repository.
-
-Go to Vercel and sign in.
-
-Click "Add New" > "Project".
-
-Import your GitHub repository.
-
-Vercel will detect Vite automatically. Click "Deploy".
-
-📄 License
-
-This project is open source and available under the MIT License.
+Just tell me!
