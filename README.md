@@ -1,4 +1,4 @@
-# **Personal Portfolio – Obisanya Oluwatosin**
+# **Personal Portfolio – Obisanya Oluwatosin (22120613022)**
 
 A modern, high-performance **personal portfolio website** built with **React**, **Tailwind CSS**, and **Vite**.
 This project features a responsive UI, smooth scroll animations, and a clean, modern aesthetic to showcase skills, experience, and projects.
@@ -67,10 +67,10 @@ All editable content is located inside `src/App.jsx`.
 
 ### **1. Update Personal Info**
 
-Inside the `Hero` and `Navbar` components:
+Inside the `Hero`, `PreLoader` and `Navbar` components:
 
 * Replace **"Obisanya Oluwatosin"** with your name.
-* Update the logo’s initial `"T"` if needed.
+* Update the logo’s initial `"Tosin"` if needed.
 
 ### **2. Modify Data Sections**
 
@@ -113,5 +113,3 @@ href="mailto:your-email@gmail.com?subject=Project%20Inquiry..."
 This project is **open-source** and available under the **MIT License**.
 
 
-
-Just tell me!
