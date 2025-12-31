@@ -14,9 +14,19 @@ import {
   Cpu, 
   Globe,
   Monitor,
+  Briefcase,
   GraduationCap,
-  Send
+  Send,
+  User,
+  Layers,
+  Shield,
+  GitBranch,
+  Instagram
 } from 'lucide-react';
+import img from './assets/profile.jpg';
+import weather from './assets/weather.png';
+import studentmgmt from './assets/student management.png';
+import tax from './assets/tax.png';
 
 /* --- UTILS & HOOKS --- */
 
@@ -50,7 +60,7 @@ const handleSmoothScroll = (e, href) => {
   e.preventDefault();
   const targetId = href.replace('#', '');
   const element = document.getElementById(targetId);
-   
+  
   if (element) {
     const headerOffset = 80;
     const elementPosition = element.getBoundingClientRect().top;
@@ -66,7 +76,7 @@ const handleSmoothScroll = (e, href) => {
 // Reusable Section Heading
 const SectionHeading = ({ title, subtitle, center = true }) => (
   <div className={`mb-16 ${center ? 'text-center' : 'text-left'}`}>
-    <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-purple-200 mb-4">
+    <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-purple-200 mb-4 pb-2 leading-tight">
       {title}
     </h2>
     <p className="text-gray-400 max-w-2xl mx-auto text-lg">
@@ -79,7 +89,7 @@ const SectionHeading = ({ title, subtitle, center = true }) => (
 // FadeIn Wrapper Component
 const FadeIn = ({ children, delay = 0, className = "" }) => {
   const [ref, isVisible] = useOnScreen({ threshold: 0.1 });
-   
+  
   return (
     <div
       ref={ref}
@@ -105,61 +115,80 @@ const NAV_LINKS = [
 ];
 
 const SKILLS = [
-  { icon: Layout, name: 'React', category: 'Frontend', level: 'Expert' },
-  { icon: Code, name: 'TypeScript', category: 'Languages', level: 'Expert' },
-  { icon: Layout, name: 'Tailwind CSS', category: 'Frontend', level: 'Expert' },
+  { icon: Layout, name: 'React.js', category: 'Frontend', level: 'Expert' },
+  { icon: Server, name: 'Spring Boot', category: 'Backend', level: 'Expert' },
+  { icon: Code, name: 'JavaScript', category: 'Languages', level: 'Expert' },
+  { icon: Code, name: 'TypeScript', category: 'Languages', level: 'Advanced' },
+  { icon: Database, name: 'Spring Data JPA', category: 'Database', level: 'Expert' },
+  { icon: Database, name: 'PostgreSQL', category: 'Database', level: 'Advanced' },
   { icon: Server, name: 'Node.js', category: 'Backend', level: 'Advanced' },
-  { icon: Database, name: 'PostgreSQL', category: 'Backend', level: 'Advanced' },
-  { icon: Terminal, name: 'Rust', category: 'Systems', level: 'Intermediate' },
-  { icon: Globe, name: 'Next.js', category: 'Frontend', level: 'Advanced' },
-  { icon: Cpu, name: 'System Design', category: 'Concepts', level: 'Advanced' },
-  { icon: Smartphone, name: 'React Native', category: 'Mobile', level: 'Intermediate' },
-  { icon: Monitor, name: 'Java Swing', category: 'Desktop', level: 'Intermediate' },
+  { icon: Globe, name: 'RESTful APIs', category: 'Backend', level: 'Expert' },
+  { icon: Shield, name: 'JWT Auth', category: 'Security', level: 'Advanced' },
+  { icon: GitBranch, name: 'Git & Docker', category: 'Tools', level: 'Intermediate' },
 ];
 
 const EXPERIENCES = [
   {
     id: 1,
-    role: "Senior Software Engineer",
-    company: "TechCorp",
-    date: "2022 - Present",
+    role: "IT Support Intern",
+    company: "CWG PLC",
+    date: "July 2025 – Sept 2025",
     desc: [
-      "Led development of a high-traffic, customer-facing web application.",
-      "Mentored junior engineers and improved team coding standards.",
-      "Architected and implemented a new microservices-based backend."
+      "Gained hands-on experience with the Microsoft ecosystem, including Power Apps and Active Directory.",
+      "Managed Tech Tuesday sessions, improving internal communication and collaboration.",
+      "Worked with enterprise security tools like Sophos and ManageEngine.",
+      "Provided technical support and troubleshooting for internal operations."
     ],
-    stack: ["React", "Node.js", "AWS", "GraphQL"]
+    stack: ["Power Apps", "Active Directory", "IT Security"]
   },
   {
     id: 2,
-    role: "Software Engineer",
-    company: "Innovate Solutions",
-    date: "2020 - 2022",
+    role: "Full Stack Developer Intern",
+    company: "CSDC Systems Solutions",
+    date: "July 2025 – Sept 2025",
     desc: [
-      "Developed and maintained features for a large scale SaaS platform.",
-      "Contributed to a 20% improvement in application performance.",
-      "Collaborated in an agile team to ship features bi-weekly."
+      "Completed frontend development for ongoing projects, improving UI responsiveness.",
+      "Designed a modern landing page, enhancing brand presentation.",
+      "Initiated backend development for a ticketing application, structuring endpoints.",
+      "Collaborated with the team to ensure seamless frontend-backend integration."
     ],
-    stack: ["Python", "Django", "PostgreSQL", "Vue.js"]
+    stack: ["React", "UI/UX", "Backend Dev"]
   },
   {
     id: 3,
-    role: "Software Development Intern",
-    company: "StartUp Co",
-    date: "Summer 2019",
+    role: "Full Stack Developer Intern",
+    company: "CSDC Systems Solutions",
+    date: "July 2024 – Sept 2024",
     desc: [
-      "Assisted in building a new feature for the company's mobile app.",
-      "Wrote unit and integration tests to ensure code quality."
+      "Developed API endpoints for student records (CRUD operations) using Spring Data JPA.",
+      "Built website templates enhancing user experience and responsiveness.",
+      "Collaborated with cross-functional teams to align development with project goals.",
+      "Improved database efficiency through optimized queries."
     ],
-    stack: ["React Native", "Firebase"]
+    stack: ["Spring Boot", "Java", "Spring Data JPA"]
   },
   {
     id: 4,
-    role: "B.S. in Computer Science",
-    company: "University of Technology",
-    date: "2016 - 2020",
+    role: "Web Developer Intern",
+    company: "Monospace Digital",
+    date: "Aug 2023 – Sept 2023",
     desc: [
-      "Graduated with honors, focusing on algorithms, data structures, and AI."
+      "Developed a client website, boosting online presence and engagement.",
+      "Researched and incorporated emerging technologies to optimize processes.",
+      "Created marketing strategies leading to increased product sales.",
+      "Analyzed customer feedback to implement critical improvements."
+    ],
+    stack: ["Web Dev", "Strategy", "Analytics"]
+  },
+  {
+    id: 5,
+    role: "B.Sc. Computer Science",
+    company: "Pan-Atlantic University",
+    date: "Expected Dec 2026",
+    desc: [
+      "Second Class Upper Academic Standing.",
+      "Resident Assistant & Student Council Tech Team Member.",
+      "Relevant Coursework: Algorithms, Data Structures, Software Engineering."
     ],
     type: "education"
   }
@@ -167,40 +196,82 @@ const EXPERIENCES = [
 
 const PROJECTS = [
   {
-    title: "SchoolHub",
-    desc: "A desktop-style UI for managing school-related tasks, built with React and TypeScript.",
-    tags: ["React", "TypeScript", "UI/UX"],
-    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    github: "#",
-    demo: "#"
+    title: "Weather App",
+    desc: "A real-time weather forecasting application providing current conditions and forecasts for cities worldwide.",
+    tags: ["React", "API Integration", "Tailwind CSS"],
+    image: weather,
+    github: "https://github.com/Tosin-O/WeatherApp", 
+    demo: "https://weather-app-six-sigma-tgsrby31ss.vercel.app/"    
   },
   {
-    title: "Java Swing Management",
-    desc: "Comprehensive management systems for various business needs, developed using Java Swing.",
-    tags: ["Java", "Swing", "SQL"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    github: "#",
+    title: "Student Management Backend",
+    desc: "Robust backend system for managing student records, featuring secure REST APIs and efficient database handling.",
+    tags: ["Spring Boot", "Java", "PostgreSQL"],
+    image: studentmgmt,
+    github: "https://github.com/Tosin-O/Spring", // Add your link here
     demo: null
   },
   {
-    title: "Plated Journey App",
-    desc: "A mobile application concept for food lovers to explore and document their culinary experiences.",
-    tags: ["Mobile Dev", "API", "UI Design"],
-    image: "https://images.unsplash.com/photo-1543362906-ac1b782b513a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    github: "#",
-    demo: "#"
+    title: "Student Council Website",
+    desc: "A dynamic platform designed for student engagement, featuring event management and resource sharing.",
+    tags: ["React", "UI/UX", "Frontend"],
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+    github: null, // Private
+    demo: null    
   },
   {
-    title: "Rust OS Kernel",
-    desc: "An experimental operating system kernel written from scratch in Rust, exploring low-level systems programming.",
-    tags: ["Rust", "Systems", "Kernel"],
-    image: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
-    github: "#",
-    demo: "#"
+    title: "Tax Platform Landing Page",
+    desc: "A modern, high-converting landing page designed for a tax filing service, focused on user trust and clarity.",
+    tags: ["React", "Tailwind CSS", "Web Design"],
+    image: tax,
+    github: null, // Private
+    demo: "http://74.50.93.182:3000/"    
   }
 ];
 
 /* --- COMPONENTS --- */
+
+const Preloader = ({ loading }) => {
+  return (
+    <div className={`fixed inset-0 z-[100] flex items-center justify-center bg-black transition-opacity duration-1000 ${loading ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      <style>
+        {`
+          @keyframes flicker-on {
+            0% { opacity: 0; text-shadow: none; color: #333; }
+            5% { opacity: 0; text-shadow: none; color: #333; }
+            6% { opacity: 1; text-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 10px rgba(255, 255, 255, 0.8); color: #fff; }
+            7% { opacity: 0; text-shadow: none; color: #333; }
+            8% { opacity: 0; text-shadow: none; color: #333; }
+            9% { opacity: 1; text-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 10px rgba(255, 255, 255, 0.8); color: #fff; }
+            10% { opacity: 0; text-shadow: none; color: #333; }
+            11% { opacity: 0.4; text-shadow: none; color: #888; }
+            15% { opacity: 1; text-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 10px rgba(255, 255, 255, 0.8); color: #fff; }
+            20% { opacity: 0.1; text-shadow: none; color: #333; }
+            30% { opacity: 1; text-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 10px rgba(255, 255, 255, 0.8); color: #fff; }
+            32% { opacity: 0.6; text-shadow: 0 0 10px rgba(168, 85, 247, 0.4); color: #ddd; }
+            33% { opacity: 1; text-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 10px rgba(255, 255, 255, 0.8); color: #fff; }
+            34% { opacity: 0.2; text-shadow: none; color: #333; }
+            35% { opacity: 1; text-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 10px rgba(255, 255, 255, 0.8); color: #fff; }
+            40% { opacity: 0.5; text-shadow: 0 0 10px rgba(168, 85, 247, 0.4); color: #ccc; }
+            50% { opacity: 1; text-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 10px rgba(255, 255, 255, 0.8); color: #fff; }
+            60% { opacity: 0.9; text-shadow: 0 0 25px rgba(168, 85, 247, 0.6); color: #eee; }
+            70% { opacity: 1; text-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 10px rgba(255, 255, 255, 0.8); color: #fff; }
+            100% { opacity: 1; text-shadow: 0 0 30px rgba(168, 85, 247, 0.8), 0 0 10px rgba(255, 255, 255, 0.8); color: #fff; }
+          }
+          .flicker-text {
+            color: #333;
+            animation: flicker-on 2.5s linear forwards;
+          }
+        `}
+      </style>
+      <div className="relative">
+        <h1 className="text-6xl md:text-9xl font-black tracking-tighter flicker-text">
+          OLUWATOSIN
+        </h1>
+      </div>
+    </div>
+  );
+};
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -213,59 +284,69 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/80 backdrop-blur-md py-4 shadow-lg border-b border-purple-900/20' : 'bg-transparent py-6'}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <div className="text-2xl font-bold tracking-tighter text-white flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-white font-bold text-sm">
-            T
+    <>
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+          .font-cursive { font-family: 'Dancing Script', cursive; }
+        `}
+      </style>
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/80 backdrop-blur-md py-4 shadow-lg border-b border-purple-900/20' : 'bg-transparent py-6'}`}>
+        <div className="w-full px-6 md:px-12 flex justify-between items-center">
+          <div className="text-4xl text-white font-cursive tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white hover:from-white hover:to-purple-400 transition-all duration-300 cursor-default">
+            Tosin
           </div>
-          Tosin.
-        </div>
-         
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center space-x-8">
-          {NAV_LINKS.map((link) => (
+          
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center space-x-8">
+            {NAV_LINKS.map((link) => (
+              <a 
+                key={link.name} 
+                href={link.href} 
+                onClick={(e) => handleSmoothScroll(e, link.href)}
+                className="text-gray-300 hover:text-purple-400 font-medium text-sm transition-colors cursor-pointer"
+              >
+                {link.name}
+              </a>
+            ))}
             <a 
-              key={link.name} 
-              href={link.href} 
-              onClick={(e) => handleSmoothScroll(e, link.href)}
-              className="text-gray-300 hover:text-purple-400 font-medium text-sm transition-colors cursor-pointer"
+              href="/Obisanya Oluwatosin_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full border border-purple-500/50 text-purple-300 hover:bg-purple-500/10 transition-colors text-sm font-medium"
             >
-              {link.name}
+              Resume
             </a>
-          ))}
-          <button className="px-4 py-2 rounded-full border border-purple-500/50 text-purple-300 hover:bg-purple-500/10 transition-colors text-sm font-medium">
-            Resume
-          </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
+              {isOpen ? <div className="text-2xl">✕</div> : <div className="text-2xl">☰</div>}
+            </button>
+          </div>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
-            {isOpen ? <div className="text-2xl">✕</div> : <div className="text-2xl">☰</div>}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Nav */}
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-slate-900 border-b border-purple-900/30 py-4 px-6 flex flex-col space-y-4 shadow-2xl">
-          {NAV_LINKS.map((link) => (
-            <a 
-              key={link.name} 
-              href={link.href} 
-              className="text-gray-300 hover:text-purple-400 block py-2 border-b border-white/5 cursor-pointer"
-              onClick={(e) => {
-                setIsOpen(false);
-                handleSmoothScroll(e, link.href);
-              }}
-            >
-              {link.name}
-            </a>
-          ))}
-        </div>
-      )}
-    </nav>
+        {/* Mobile Nav */}
+        {isOpen && (
+          <div className="md:hidden absolute top-full left-0 w-full bg-slate-900 border-b border-purple-900/30 py-4 px-6 flex flex-col space-y-4 shadow-2xl">
+            {NAV_LINKS.map((link) => (
+              <a 
+                key={link.name} 
+                href={link.href} 
+                className="text-gray-300 hover:text-purple-400 block py-2 border-b border-white/5 cursor-pointer"
+                onClick={(e) => {
+                  setIsOpen(false);
+                  handleSmoothScroll(e, link.href);
+                }}
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        )}
+      </nav>
+    </>
   );
 };
 
@@ -273,15 +354,15 @@ const Hero = () => {
   const [textIndex, setTextIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-   
-  const phrases = ["I solve problems.", "I build things for the web.", "I am a Full Stack Developer."];
+  
+  const phrases = ["I am a Full Stack Developer.", "I build scalable applications.", "I work with React & Spring Boot."];
   const typingSpeed = 100;
   const deletingSpeed = 50;
   const pauseTime = 2000;
 
   useEffect(() => {
     const currentPhrase = phrases[textIndex];
-     
+    
     const handleTyping = () => {
       if (!isDeleting) {
         setDisplayText(currentPhrase.substring(0, displayText.length + 1));
@@ -311,26 +392,25 @@ const Hero = () => {
         <FadeIn>
           <p className="text-purple-400 font-medium mb-4 text-lg md:text-xl tracking-wide">Hi, my name is</p>
         </FadeIn>
-         
+        
         <FadeIn delay={200}>
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight">
-            Obisanya Oluwatosin<span className="text-purple-500">.</span>
+            Oluwatosin Obisanya<span className="text-purple-500">.</span>
           </h1>
         </FadeIn>
-         
+        
         <FadeIn delay={400}>
           <div className="h-16 md:h-24 flex items-center justify-center">
-            <span className="text-3xl md:text-6xl text-gray-400 font-bold font-mono">
+            <span className="text-2xl md:text-5xl text-gray-400 font-bold font-mono">
               {displayText}
               <span className="animate-pulse text-purple-500">|</span>
             </span>
           </div>
         </FadeIn>
-         
+        
         <FadeIn delay={600}>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            Innovative Full Stack Developer passionate about creating seamless and impactful web solutions. 
-            Eager to leverage modern technologies to solve real-world problems.
+            Passionate and detail-oriented Full Stack Developer. I build scalable, secure, and intuitive applications using React, Spring Boot, and RESTful APIs, optimizing performance and maintaining clean code.
           </p>
         </FadeIn>
 
@@ -342,16 +422,31 @@ const Hero = () => {
             >
               View My Work
             </button>
-            <button className="px-8 py-4 bg-transparent border border-purple-500 text-purple-300 hover:bg-purple-500/10 rounded-lg font-bold text-lg transition-all flex items-center gap-2">
+            <a 
+              href="/Obisanya Oluwatosin_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-transparent border border-purple-500 text-purple-300 hover:bg-purple-500/10 rounded-lg font-bold text-lg transition-all flex items-center gap-2"
+            >
               <span className="text-xl">⇩</span> Download CV
-            </button>
+            </a>
           </div>
         </FadeIn>
 
         <FadeIn delay={1000}>
           <div className="mt-12 flex justify-center gap-6">
-            {[Github, Linkedin, Mail].map((Icon, i) => (
-              <a key={i} href="#" className="text-gray-400 hover:text-purple-400 transition-colors transform hover:-translate-y-1">
+            {[
+              { Icon: Github, href: "https://github.com/Tosin-O" },
+              { Icon: Linkedin, href: "https://www.linkedin.com/in/oluwatosin-obisanya-218b93280/" },
+              { Icon: Mail, href: "mailto:codewithtosin@gmail.com" }
+            ].map(({ Icon, href }, i) => (
+              <a 
+                key={i} 
+                href={href}
+                target={href.startsWith('http') ? "_blank" : "_self"} 
+                rel={href.startsWith('http') ? "noopener noreferrer" : ""}
+                className="text-gray-400 hover:text-purple-400 transition-colors transform hover:-translate-y-1"
+              >
                 <Icon size={28} />
               </a>
             ))}
@@ -370,7 +465,7 @@ const About = () => {
   return (
     <section id="about" className="py-24 relative">
        <div className="absolute right-0 top-1/4 w-96 h-96 bg-pink-600/10 rounded-full blur-[100px] pointer-events-none"></div>
-       
+      
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image Side */}
@@ -384,11 +479,11 @@ const About = () => {
                      <span className="text-6xl">👤</span>
                    </div>
                    <img 
-                      src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                      alt="Profile" 
+                      src={img} 
+                      alt="Oluwatosin" 
                       className="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700"
                     />
-                  </div>
+                 </div>
               </div>
             </div>
           </FadeIn>
@@ -396,7 +491,7 @@ const About = () => {
           {/* Text Side */}
           <FadeIn delay={200}>
             <div>
-              <p className="text-purple-400 font-bold tracking-widest text-sm mb-4 uppercase">About Tosin</p>
+              <p className="text-purple-400 font-bold tracking-widest text-sm mb-4 uppercase">About Me</p>
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Crafting digital experiences with <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">purpose</span> and passion.
               </h2>
@@ -410,7 +505,7 @@ const About = () => {
               <div className="mb-8">
                 <p className="text-sm font-semibold text-gray-300 mb-3 uppercase tracking-wider">My Stack Includes</p>
                 <div className="flex flex-wrap gap-3">
-                  {['Web Development', 'Mobile Apps', 'Rust', 'UI/UX Design', 'Systems Programming'].map((tech) => (
+                  {['React.js', 'Spring Boot', 'RESTful APIs', 'PostgreSQL', 'Docker', 'TypeScript'].map((tech) => (
                     <span key={tech} className="px-4 py-2 bg-purple-900/30 border border-purple-500/20 rounded-full text-purple-300 text-sm font-medium">
                       {tech}
                     </span>
@@ -454,7 +549,7 @@ const Skills = () => {
                 </div>
                 <h3 className="text-white font-semibold mb-1">{skill.name}</h3>
                 <p className="text-xs text-gray-500">{skill.category}</p>
-                 
+                
                 {/* Dot indicator */}
                 <div className={`absolute top-3 right-3 w-2 h-2 rounded-full ${
                    skill.level === 'Expert' ? 'bg-green-400' : 
@@ -488,7 +583,7 @@ const Experience = () => {
             {EXPERIENCES.map((exp, index) => (
               <FadeIn key={exp.id} delay={index * 100}>
                 <div className={`flex flex-col md:flex-row gap-8 relative ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                   
+                  
                   {/* Timeline Dot */}
                   <div className="absolute left-[-5px] md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 rounded-full bg-slate-950 border-2 border-purple-500 z-10 shadow-[0_0_10px_#a855f7] mt-6 md:mt-0"></div>
 
@@ -501,7 +596,7 @@ const Experience = () => {
                       </div>
                       <h3 className="text-xl font-bold text-white mb-1">{exp.role}</h3>
                       <p className="text-gray-400 mb-4 font-medium">{exp.company}</p>
-                       
+                      
                       <ul className="space-y-2 mb-6">
                         {exp.desc.map((item, i) => (
                           <li key={i} className="flex items-start text-sm text-gray-400">
@@ -522,7 +617,7 @@ const Experience = () => {
                       )}
                     </div>
                   </div>
-                   
+                  
                   {/* Empty side for layout balance */}
                   <div className="hidden md:block md:w-1/2"></div>
                 </div>
@@ -541,8 +636,8 @@ const Projects = () => {
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <SectionHeading 
-            title="My Creative Works" 
-            subtitle="A collection of projects where I've turned complex problems into elegant, user-centric solutions." 
+            title="My Projects" 
+            subtitle="A collection of projects showcasing my skills in React, Spring Boot, and RESTful APIs." 
           />
         </FadeIn>
 
@@ -550,7 +645,7 @@ const Projects = () => {
           {PROJECTS.map((project, index) => (
             <FadeIn key={index} delay={index * 150}>
               <div className="group relative bg-slate-900 border border-white/5 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-900/20 h-full flex flex-col">
-                 
+                
                 {/* Image Container */}
                 <div className="h-56 overflow-hidden relative">
                   <div className="absolute inset-0 bg-purple-900/20 group-hover:bg-transparent transition-colors z-10"></div>
@@ -576,14 +671,16 @@ const Projects = () => {
                   </div>
 
                   <div className="flex gap-4 pt-4 border-t border-white/5">
-                      {project.demo && (
-                       <a href={project.demo} className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold rounded-lg transition-colors">
-                         Live Demo <ExternalLink size={14} />
-                       </a>
-                      )}
-                    <a href={project.github} className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-gray-300 text-sm font-bold rounded-lg transition-colors">
-                      GitHub <Code size={14} />
-                    </a>
+                     {project.demo && (
+                      <a href={project.demo} className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold rounded-lg transition-colors">
+                        Live Demo <ExternalLink size={14} />
+                      </a>
+                     )}
+                     {project.github && (
+                      <a href={project.github} className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-gray-300 text-sm font-bold rounded-lg transition-colors">
+                        GitHub <Code size={14} />
+                      </a>
+                     )}
                   </div>
                 </div>
               </div>
@@ -610,28 +707,26 @@ const Contact = () => {
                Let's build something <span className="text-purple-400">great</span> together.
              </h2>
              <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-               I'm currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is always open!
+               I'm excited to hear about your ideas. Let's connect and turn them into something beautiful and functional.
              </p>
 
-             {/* The Mailto Button */}
-             <a 
-               href="mailto:codewithtosin@gmail.com?subject=Project%20Inquiry&body=Hi%20Tosin,%0D%0A%0D%0AI%20saw%20your%20portfolio%20and%20wanted%20to%20connect."
-               className="inline-flex group relative px-8 py-4 bg-slate-950 text-white rounded-full font-bold text-lg overflow-hidden border border-purple-500/30 hover:border-purple-500 transition-colors"
-             >
-               <span className="relative z-10 flex items-center gap-3">
-                 <Mail className="group-hover:text-purple-400 transition-colors" />
-                 Say Hello
-               </span>
-               <div className="absolute inset-0 bg-purple-900/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+             <a href="mailto:codewithtosin@gmail.com" className="inline-block">
+               <button className="group relative px-8 py-4 bg-slate-950 text-white rounded-full font-bold text-lg overflow-hidden border border-purple-500/30 hover:border-purple-500 transition-colors">
+                 <span className="relative z-10 flex items-center gap-3">
+                   <Mail className="group-hover:text-purple-400 transition-colors" />
+                   codewithtosin@gmail.com
+                 </span>
+                 <div className="absolute inset-0 bg-purple-900/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+               </button>
              </a>
 
              <div className="mt-12 pt-12 border-t border-white/5">
                <p className="text-gray-500 text-sm mb-6">Or find me on other platforms</p>
                <div className="flex justify-center gap-6">
                  {[
-                   { icon: Github, href: "#" },
-                   { icon: Linkedin, href: "#" },
-                   { icon: Send, href: "#" }
+                   { icon: Github, href: "https://github.com/Tosin-O" },
+                   { icon: Linkedin, href: "https://www.linkedin.com/in/oluwatosin-obisanya-218b93280/" },
+                   { icon: Instagram, href: "https://www.instagram.com/codejourneywithtosin/" }
                  ].map((social, i) => (
                    <a 
                      key={i} 
@@ -669,7 +764,7 @@ const Footer = () => (
       <Linkedin size={18} />
     </div>
     <p className="text-gray-600 text-sm">
-      © 2024 Obisanya Oluwatosin. All Rights Reserved.
+      © 2025 Oluwatosin Obisanya. All Rights Reserved.
     </p>
   </footer>
 );
@@ -677,8 +772,33 @@ const Footer = () => (
 /* --- APP COMPONENT --- */
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500); // 2.5 seconds loading time
+
+    // Set Document Title
+    document.title = "Tosin | Full Stack Developer";
+
+    // Set Favicon
+    const setFavicon = () => {
+      const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+      link.type = 'image/svg+xml';
+      link.rel = 'shortcut icon';
+      link.href = `data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%239333ea%22/><text x=%2250%22 y=%2270%22 font-family=%22cursive%22 font-size=%2260%22 text-anchor=%22middle%22 fill=%22white%22 font-weight=%22bold%22>T</text></svg>`;
+      document.getElementsByTagName('head')[0].appendChild(link);
+    };
+    setFavicon();
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="bg-slate-950 min-h-screen text-slate-200 font-sans selection:bg-purple-500/30 selection:text-purple-200">
+    <div className="bg-slate-950 min-h-screen text-slate-200 font-sans selection:bg-purple-500/30 selection:text-purple-200 relative">
+      <Preloader loading={loading} />
       <Navbar />
       <main>
         <Hero />
