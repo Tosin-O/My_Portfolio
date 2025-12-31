@@ -25,7 +25,7 @@ import {
 } from 'lucide-react';
 import img from './assets/profile.jpg';
 import weather from './assets/weather.png';
-import studentmgmt from './assets/studentmanagement.png';
+import studentmgmt from './assets/Studentmanagement.png';
 import tax from './assets/tax.png';
 
 /* --- UTILS & HOOKS --- */
