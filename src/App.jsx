@@ -23,10 +23,12 @@ import {
   GitBranch,
   Instagram
 } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import img from './assets/profile.jpg';
 import weather from './assets/weather.png';
 import studentmgmt from './assets/Studentmanagement.png';
 import tax from './assets/tax.png';
+import ProjectDetails from './projectdetails';
 
 /* --- UTILS & HOOKS --- */
 
@@ -631,61 +633,82 @@ const Experience = () => {
 };
 
 const Projects = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="projects" className="py-24 bg-slate-950/50">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <SectionHeading 
-            title="My Projects" 
-            subtitle="A collection of projects showcasing my skills in React, Spring Boot, and RESTful APIs." 
+          <SectionHeading
+            title="My Projects"
+            subtitle="A collection of projects showcasing my skills."
           />
         </FadeIn>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {PROJECTS.map((project, index) => (
-            <FadeIn key={index} delay={index * 150}>
-              <div className="group relative bg-slate-900 border border-white/5 rounded-2xl overflow-hidden hover:border-purple-500/30 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-900/20 h-full flex flex-col">
-                
-                {/* Image Container */}
-                <div className="h-56 overflow-hidden relative">
-                  <div className="absolute inset-0 bg-purple-900/20 group-hover:bg-transparent transition-colors z-10"></div>
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
+          {PROJECTS.map((project, index) => {
+            const isWeather = project.title === "Weather App";
 
-                <div className="p-8 flex flex-col flex-grow">
-                  <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
-                  <p className="text-gray-400 mb-6 flex-grow leading-relaxed">
-                    {project.desc}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-8">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="px-3 py-1 bg-slate-800 text-purple-300 text-xs font-semibold rounded-full border border-purple-500/10">
-                        {tag}
+            return (
+              <FadeIn key={index} delay={index * 150}>
+                <div
+                  onClick={() => isWeather && navigate('/projects-weather-app')}
+                  className={`group bg-slate-900 border border-white/5 rounded-2xl overflow-hidden flex flex-col transition-all duration-300
+                    ${isWeather ? 'cursor-pointer hover:-translate-y-2 hover:border-purple-500/30 hover:shadow-2xl hover:shadow-purple-900/20' : ''}
+                  `}
+                >
+                  <div className="h-56 overflow-hidden relative">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    {isWeather && (
+                      <span className="absolute top-4 right-4 bg-purple-600 text-white text-xs px-3 py-1 rounded-full">
+                        View Details
                       </span>
-                    ))}
+                    )}
                   </div>
 
-                  <div className="flex gap-4 pt-4 border-t border-white/5">
-                     {project.demo && (
-                      <a href={project.demo} className="flex items-center gap-2 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold rounded-lg transition-colors">
-                        Live Demo <ExternalLink size={14} />
-                      </a>
-                     )}
-                     {project.github && (
-                      <a href={project.github} className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-gray-300 text-sm font-bold rounded-lg transition-colors">
-                        GitHub <Code size={14} />
-                      </a>
-                     )}
+                  <div className="p-8 flex flex-col flex-grow">
+                    <h3 className="text-2xl font-bold text-white mb-3">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-400 mb-6 flex-grow">{project.desc}</p>
+
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.tags.map(tag => (
+                        <span key={tag} className="px-3 py-1 bg-slate-800 text-purple-300 text-xs rounded-full">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex gap-4 pt-4 border-t border-white/5">
+                      {project.demo && (
+                        <a
+                          href={project.demo}
+                          onClick={e => e.stopPropagation()}
+                          className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg text-sm"
+                        >
+                          Live Demo <ExternalLink size={14} />
+                        </a>
+                      )}
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          onClick={e => e.stopPropagation()}
+                          className="flex items-center gap-2 px-4 py-2 bg-slate-800 text-gray-300 rounded-lg text-sm"
+                        >
+                          GitHub <Code size={14} />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </FadeIn>
-          ))}
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -769,10 +792,10 @@ const Footer = () => (
   </footer>
 );
 
-/* --- APP COMPONENT --- */
 
-const App = () => {
-  const [loading, setLoading] = useState(true);
+
+const Home = () => {
+const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Simulate loading time
@@ -810,6 +833,22 @@ const App = () => {
       </main>
       <Footer />
     </div>
+  );
+ 
+};
+
+/* --- APP COMPONENT --- */
+
+const App = () => {
+  return (
+    <Router>
+      <div className="bg-slate-950 min-h-screen text-slate-200">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects-weather-app" element={<ProjectDetails />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 
